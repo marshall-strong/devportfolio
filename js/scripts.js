@@ -78,7 +78,7 @@
       );
     });
 
-    // Add dates to the timeline if exists
+    // Add dates, locations to the timeline if they exist
     $this.find(".vtimeline-content").each(function () {
       var date = $(this).data("date");
       if (date) {
@@ -87,7 +87,25 @@
           .parent()
           .prepend('<span class="vtimeline-date">' + date + "</span>");
       }
+      var location = $(this).data("location");
+      if (location) {
+        // Prepend if exists
+        $(this)
+          .parent()
+          .prepend('<span class="vtimeline-location">' + location + "</span>");
+      }
     });
+
+    // // Add dates to the timeline if exists
+    // $this.find(".vtimeline-content").each(function () {
+    //   var date = $(this).data("date");
+    //   if (date) {
+    //     // Prepend if exists
+    //     $(this)
+    //       .parent()
+    //       .prepend('<span class="vtimeline-date">' + date + "</span>");
+    //   }
+    // });
   });
 
   // Open mobile menu

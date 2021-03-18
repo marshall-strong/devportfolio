@@ -562,14 +562,23 @@ footer {
   }
 }
 
+.vtimeline-location,
 .vtimeline-date {
   width: 260px;
   text-align: right;
   position: absolute;
   left: 0;
-  top: 10px;
+  // top: 10px;
   font-weight: 300;
   color: #374054;
+}
+
+.vtimeline-location {
+  top: 35px;
+}
+
+.vtimeline-date {
+  top: 10px;
 }
 
 /*
@@ -855,7 +864,8 @@ footer {
     }
   }
 
-  .vtimeline-date {
+  .vtimeline-date,
+  .vtimeline-location {
     width: auto;
     text-align: left;
     position: relative;
