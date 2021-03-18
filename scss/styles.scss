@@ -614,7 +614,17 @@ footer {
 
   span {
     color: $text;
+  }
+  
+  // span.education-location {
+  //   float: left;
+  //   padding-left: 10px;
+  //   padding-top: 2px;
+  // }
+
+  span.education-date {
     float: right;
+    padding-top: 3px;
   }
 
   h4 {
@@ -622,6 +632,10 @@ footer {
     clear: both;
     font-weight: 500;
     margin: 0 0 15px 0;
+  }
+
+  h4.education-location {
+    margin: 0 0 5px 0;
   }
 
   p,
