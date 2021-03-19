@@ -225,7 +225,7 @@ footer {
   height: 100vh;
   min-height: 500px;
   max-height: 1080px;
-  background: url(../images/lead-bg.jpg);
+  background: url(../images/middlebury.jpg);
   background-size: cover;
   padding: 15px;
   overflow: hidden;
@@ -304,15 +304,13 @@ footer {
   }
 }
 #about {
-  padding: 75px 15px;
+  padding: 50px 15px;
   border-bottom: 1px solid #dcd9d9;
+  text-align: center;
 }
 #about h2 {
   color: #374054;
-}
-#about p {
-  color: #74808a;
-  margin: 0;
+  margin-bottom: 50px;
 }
 #experience {
   padding: 50px 15px;
@@ -397,14 +395,20 @@ footer {
   font-size: 2em;
   margin-top: 10px;
 }
+.vtimeline-location,
 .vtimeline-date {
   width: 260px;
   text-align: right;
   position: absolute;
   left: 0;
-  top: 10px;
   font-weight: 300;
   color: #374054;
+}
+.vtimeline-location {
+  top: 35px;
+}
+.vtimeline-date {
+  top: 10px;
 }
 #education {
   padding: 50px 15px 20px 15px;
@@ -430,13 +434,19 @@ footer {
 }
 .education-block span {
   color: #74808a;
+}
+.education-block span.education-date {
   float: right;
+  padding-top: 3px;
 }
 .education-block h4 {
   color: #74808a;
   clear: both;
   font-weight: 500;
   margin: 0 0 15px 0;
+}
+.education-block h4.education-location {
+  margin: 0 0 5px 0;
 }
 .education-block p,
 .education-block ul {
@@ -627,7 +637,8 @@ footer {
   #experience-timeline:after {
     left: 23px;
   }
-  .vtimeline-date {
+  .vtimeline-date,
+  .vtimeline-location {
     width: auto;
     text-align: left;
     position: relative;
