@@ -54,7 +54,7 @@ We are essentially using rails as an API only (I didn't create the app in API on
 
 # Frontend
 
-The frontend is a React/Redux app that uses the Redux Hooks API. It was created using [cra-template-redux](https://github.com/reduxjs/cra-template-redux), the official Redux+JS template for [Create React App](https://github.com/facebook/create-react-app).
+The frontend is a React/Redux app, located in the `client/` direcory. It was created using [cra-template-redux](https://github.com/reduxjs/cra-template-redux), the official Redux+JS template for [Create React App](https://github.com/facebook/create-react-app).
 
 ## React.js
 
@@ -107,20 +107,20 @@ https://devcenter.heroku.com/articles/heroku-cli
 
 [Introduction to Procfiles by Heroku](https://devcenter.heroku.com/articles/procfile)
 
-#### Procfile for DEV Environment
+#### Procfile.dev
 
 ```text
 web: PORT=3000 yarn --cwd client start
 api: PORT=3001 bundle exec rails s
 ```
 
-Start app using Heroku Command Line:
+Run the Procfile using the Heroku Command Line Interface:
 
 ```bash
 heroku local -f Procfile.dev
 ```
 
-Create a rake test
+Create a rake task that starts the development environment:
 
 ```ruby
 namespace :start do
@@ -133,7 +133,7 @@ desc 'Start development server'
 task :start => 'start:development'
 ```
 
-To start the development environment, just run
+Use the rake task to start the development environment:
 
 ```bash
 bin/rake start
@@ -143,6 +143,33 @@ One command to fire up two servers! Heroku will start the front end, /client, on
 It’ll then open the client, http://localhost:3000 in your browser.
 
 ## Heroku production deployment
+
+So, how do we get our Rails app serving the Webpack bundle in production?
+
+Heroku's `heroku-postbuild` command will build the app (located in the `/client` directory), then copy the files into the `/public` directory to be served by Rails. We end up with a single Rails server manging both our front end and our back end.
+
+### `package.json`
+
+```json
+{
+  "name": "list-of-ingredients",
+  "license": "MIT",
+  "engines": {
+    "node": "10.15.3",
+    "yarn": "1.15.2"
+  },
+  "scripts": {
+    "build": "yarn --cwd client install && yarn --cwd client build",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
+  }
+}
+```
+
+### [How Heroku Works](https://devcenter.heroku.com/articles/how-heroku-works)
+
+- the `build` command uses `yarn --cwd client` to tell yarn to `cd` into the `client/` directory before running `build`
+- the `post-build` command gets run after heroku has built the application, or "slug"
 
 ### uptime-robot
 
