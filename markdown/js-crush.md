@@ -1,5 +1,8 @@
 # jsCrush
 
+[Live Site](https://marshall-strong.github.io/js-crush/)
+[GitHub](https://github.com/marshall-strong/js-crush)
+
 # Resume
 
 ## Keywords

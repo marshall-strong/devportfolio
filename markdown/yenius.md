@@ -1,5 +1,8 @@
 # Yenius
 
+[Live Site](https://yenius.herokuapp.com/)
+[GitHub](https://github.com/marshall-strong/yenius)
+
 # Resume
 
 ## Keywords
@@ -27,6 +30,22 @@ a Kanye West-centric full-stack clone of Genius.com -- community sourced music l
 
 # Technologies Used
 
+## Backend
+
+### Rails 6
+
+We are essentially using rails as an API only (I didn't create the app in API only mode, but I did delete most of the non-API stuff).
+
+### PostgreSQL
+
+### Polymorphic associations
+
+### Counter Cache
+
+### BCrypt gem
+
+### Seed Generation
+
 ## Frontend
 
 ### React.js
@@ -40,20 +59,6 @@ a Kanye West-centric full-stack clone of Genius.com -- community sourced music l
 ### Create React App redux template
 
 ### Bing News Search API
-
-## Backend
-
-### Rails 6
-
-### PostgreSQL
-
-### Polymorphic associations
-
-### Counter Cache
-
-### BCrypt gem
-
-### Seed Generation
 
 ## Assets
 
