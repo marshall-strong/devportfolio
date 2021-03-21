@@ -30,63 +30,129 @@ a Kanye West-centric full-stack clone of Genius.com -- community sourced music l
 
 # Technologies Used
 
-## Backend
+# Backend
 
-### Rails 6
+The backend is an API-only Ruby on Rails app, and uses a postgreSQL database.
+
+## Rails 6
 
 We are essentially using rails as an API only (I didn't create the app in API only mode, but I did delete most of the non-API stuff).
 
-### PostgreSQL
+## PostgreSQL
 
-### Polymorphic associations
+## Routes, Controllers
 
-### Counter Cache
+## Active Record models
 
-### BCrypt gem
+## Polymorphic associations
 
-### Seed Generation
+## Counter Cache
 
-## Frontend
+## BCrypt gem
 
-### React.js
+## Seed Generation
 
-### React Hooks API
+# Frontend
 
-### React Router
+The frontend is a React/Redux app that uses the Redux Hooks API. It was created using [cra-template-redux](https://github.com/reduxjs/cra-template-redux), the official Redux+JS template for [Create React App](https://github.com/facebook/create-react-app).
 
-### Redux.js
+## React.js
 
-### Create React App redux template
+## React Hooks API
 
-### Bing News Search API
+## React Router
 
-## Assets
+## Redux.js
 
-### SASS
+## Create React App redux template
 
-### Fonts
+_Because life is too short to configure Webpack manually_
 
-### SVGs
+## Bing News Search API
 
-### images hosted on AWS S3
+# Assets
 
-## Deployment
+## SASS
 
-### Heroku local for dev enironment
+## Fonts
 
-### proxy unknown API requests to backend
+## SVGs
 
-### Heroku production deployment
+## images hosted on AWS S3
 
-- uptime-robot
+# Deployment
 
-## Code Style
+## Proxy API Calls
 
-### Prettier
+Automatically proxy API calls via the right port, without needing to swap anything between development and production.
+To do this, jump into `client/package.json` and add a proxy property:
 
-### ESLint
+```json
+"proxy": "http://localhost:3001/",
+```
 
-### pre-commit
+Once we hook everything up our scripts will be running the API on port `3001`, and we are configuring Rails to be our API.
+
+## Heroku local for dev enironment
+
+Having a Node server and a Rails server both running locally massviely speeds up development time. It's great for development, but overkill for production.
+
+While we do need to run a Node server localy, we'll be depoying a pre-built bundle to heroku, and we won't need to run a Node server there.
+
+### Heroku Command Line Interface
+
+https://devcenter.heroku.com/articles/heroku-cli
+
+### Procfile
+
+[Introduction to Procfiles by Heroku](https://devcenter.heroku.com/articles/procfile)
+
+#### Procfile for DEV Environment
+
+```text
+web: PORT=3000 yarn --cwd client start
+api: PORT=3001 bundle exec rails s
+```
+
+Start app using Heroku Command Line:
+
+```bash
+heroku local -f Procfile.dev
+```
+
+Create a rake test
+
+```ruby
+namespace :start do
+  task :development do
+    exec 'heroku local -f Profcile.dev'
+  end
+end
+
+desc 'Start development server'
+task :start => 'start:development'
+```
+
+To start the development environment, just run
+
+```bash
+bin/rake start
+```
+
+One command to fire up two servers! Heroku will start the front end, /client, on port 3000, and the API on port 3001.
+It’ll then open the client, http://localhost:3000 in your browser.
+
+## Heroku production deployment
+
+### uptime-robot
+
+# Code Style
+
+## Prettier
+
+## ESLint
+
+## pre-commit
 
 # Thoughts on Application Structure and Webpack
 
