@@ -63,3 +63,22 @@ Heroku production deployment
 Prettier
 ESLint
 pre-commit
+
+# Future Development
+
+## CMS
+
+add CMS access with [ActiveAdmin](https://activeadmin.info/0-installation.html#setting-up-active-admin)
+
+## User roles
+
+multiple user roles:
+
+- moderators can edit, delete all Comments
+- admins can add, edit ArtistCreditTypes, SampleCreditTypes
+- users can add, edit Albums, Artists, Songs, Lyrics, ArtistCredits, SampleCredits
+
+## Popups on hover
+
+mousing over an artist link should display the artist's headshot.
+the headshot should disappear when the user mouses away.
