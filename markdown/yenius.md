@@ -24,3 +24,42 @@ a Kanye West-centric full-stack clone of Genius.com -- community sourced music l
 - Managed complex metadata by using Redux to create a normalized state with a single source of truth
 - Leveraged Rails polymorphic associations to avoid schema changes when adding new types of metadata
 - Ensured secure user authentication by using the BCrypt gem to salt, hash, and retrieve passwords
+
+# Technologies Used
+
+## Frontend
+
+React.js
+Hooks API
+React Router
+Redux.js
+Create React App redux template
+Bing News Search API
+
+## Backend
+
+Rails 6
+PostgreSQL
+Polymorphic associations
+Counter Cache
+BCrypt gem
+Seed Generation
+
+## Assets
+
+SASS
+Fonts
+SVGs
+images hosted on AWS S3
+
+## Deployment
+
+Heroku local for dev enironment
+proxy unknown API requests to backend
+Heroku production deployment
+
+## Code Style
+
+Prettier
+ESLint
+pre-commit
