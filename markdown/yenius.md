@@ -80,12 +80,12 @@ _Because life is too short to configure Webpack manually_
 
 ## images hosted on AWS S3
 
-# Deployment
-
-## Proxy API Calls
+# Proxy API Calls
 
 Automatically proxy API calls via the right port, without needing to swap anything between development and production.
 To do this, jump into `client/package.json` and add a proxy property:
+
+##### `client/package.json`
 
 ```json
 "proxy": "http://localhost:3001/",
@@ -93,7 +93,14 @@ To do this, jump into `client/package.json` and add a proxy property:
 
 Once we hook everything up our scripts will be running the API on port `3001`, and we are configuring Rails to be our API.
 
-## Heroku local for dev enironment
+# Heroku
+
+## [How Heroku Works](https://devcenter.heroku.com/articles/how-heroku-works)
+
+- the `build` command uses `yarn --cwd client` to tell yarn to `cd` into the `client/` directory before running `build`
+- the `post-build` command gets run after heroku has built the application, or "slug"
+
+## Heroku local
 
 Having a Node server and a Rails server both running locally massviely speeds up development time. It's great for development, but overkill for production.
 
@@ -103,52 +110,93 @@ While we do need to run a Node server localy, we'll be depoying a pre-built bund
 
 https://devcenter.heroku.com/articles/heroku-cli
 
-### Procfile
+### Procfiles
 
 [Introduction to Procfiles by Heroku](https://devcenter.heroku.com/articles/procfile)
 
-#### Procfile.dev
+## Development
+
+### Create a Procfile for starting the app in Development
+
+##### `Procfile.dev`
 
 ```text
 web: PORT=3000 yarn --cwd client start
 api: PORT=3001 bundle exec rails s
+
 ```
 
-Run the Procfile using the Heroku Command Line Interface:
+### Use Heroku CLI to run the Procfile
+
+##### in your console:
 
 ```bash
-heroku local -f Procfile.dev
+$ heroku local -f Procfile.dev
 ```
 
-Create a rake task that starts the development environment:
+### Create a rake task to run the Dev Procfile
+
+##### `lib/tasks/start.rake`
 
 ```ruby
 namespace :start do
   task :development do
-    exec 'heroku local -f Profcile.dev'
+    exec 'heroku local -f Procfile.dev'
   end
 end
 
 desc 'Start development server'
 task :start => 'start:development'
+
 ```
 
-Use the rake task to start the development environment:
+##### Run the rake task in your console:
 
 ```bash
-bin/rake start
+$ yarn start
+```
+
+##### console output:
+
+```bash
+marstrong@mars-ideapad:~/yenius$ yarn start
+yarn run v1.22.5
+$ rails start
+[OKAY] Loaded ENV .env File as KEY=VALUE Format
+4:45:42 PM web.1 |  $ react-scripts start
+4:45:45 PM api.1 |  => Booting Puma
+4:45:45 PM api.1 |  => Rails 6.0.3.4 application starting in development
+4:45:45 PM api.1 |  => Run `rails server --help` for more startup options
+4:45:46 PM api.1 |  Puma starting in single mode...
+4:45:46 PM api.1 |  * Version 4.3.7 (ruby 2.7.2-p137), codename: Mysterious Traveller
+4:45:46 PM api.1 |  * Min threads: 5, max threads: 5
+4:45:46 PM api.1 |  * Environment: development
+4:45:46 PM api.1 |  * Listening on tcp://127.0.0.1:3001
+4:45:46 PM api.1 |  * Listening on tcp://[::1]:3001
+4:45:46 PM api.1 |  Use Ctrl-C to stop
+4:45:46 PM web.1 |  ℹ ｢wds｣: Project is running at http://172.24.232.210/
+4:45:46 PM web.1 |  ℹ ｢wds｣: webpack output is served from
+4:45:46 PM web.1 |  ℹ ｢wds｣: Content not from webpack is served from /home/marstrong/yenius/client/public
+4:45:46 PM web.1 |  ℹ ｢wds｣: 404s will fallback to /
+4:45:46 PM web.1 |  Starting the development server...
+4:46:12 PM web.1 |  Compiled successfully!
+4:46:12 PM web.1 |  You can now view yenius-client in the browser.
+4:46:12 PM web.1 |    Local:            http://localhost:3000
+4:46:12 PM web.1 |    On Your Network:  http://172.24.232.210:3000
+4:46:12 PM web.1 |  Note that the development build is not optimized.
+4:46:12 PM web.1 |  To create a production build, use yarn build.
 ```
 
 One command to fire up two servers! Heroku will start the front end, /client, on port 3000, and the API on port 3001.
 It’ll then open the client, http://localhost:3000 in your browser.
 
-## Heroku production deployment
+## Production Environment
 
 So, how do we get our Rails app serving the Webpack bundle in production?
 
 Heroku's `heroku-postbuild` command will build the app (located in the `/client` directory), then copy the files into the `/public` directory to be served by Rails. We end up with a single Rails server manging both our front end and our back end.
 
-### `package.json`
+##### `package.json`
 
 ```json
 {
@@ -166,10 +214,49 @@ Heroku's `heroku-postbuild` command will build the app (located in the `/client`
 }
 ```
 
-### [How Heroku Works](https://devcenter.heroku.com/articles/how-heroku-works)
+### Create a Procfile for starting the app in Production
 
-- the `build` command uses `yarn --cwd client` to tell yarn to `cd` into the `client/` directory before running `build`
-- the `post-build` command gets run after heroku has built the application, or "slug"
+##### Procfile
+
+```text
+web: bundle exec rails s
+release: bin/rake db:migrate
+```
+
+Heroku runs the `release` command just before a new release of the app is deployed. We'lll use it to make sure our database is migrated.
+
+#### [more info on `release`...](https://devcenter.heroku.com/articles/release-phase)
+
+## Configure Secrets
+
+### [Encrypted Secrets](https://blog.engineyard.com/encrypted-rails-secrets-on-rails-5.1)
+
+#### set up encrypted secrets
+
+```bash
+$ rails secrets:setup
+```
+
+This command creates 2 files.
+`config/secrets.yml.key` contains the key the will encrypt and decrypt the secrets. This file should not be commit to GitHub.
+`config/secrets.yml.enc` contains the encrypted secrets. The secrets have been encrypted with the key, and are safe to commit to GitHub.
+
+#### edit encrypted secrets
+
+```bash
+$ rails secrets:edit
+```
+
+Opens the secrets as an unencrypted text file.
+After the file is saved and closed, an encrypted version will be saved to `config/secrets.yml.enc`.
+
+#### generate a new secret key base
+
+```bash
+$ rails secret
+```
+
+Use the Rails secret key base as the environmental variable RAILS_MASTER_KEY
 
 ### uptime-robot
 
