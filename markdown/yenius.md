@@ -110,3 +110,22 @@ multiple user roles:
 
 mousing over an artist link should display the artist's headshot.
 the headshot should disappear when the user mouses away.
+
+# Acknowledgments
+
+## [A Rock Solid, Modern Web Stack](https://blog.heroku.com/a-rock-solid-modern-web-stack)
+
+I used this Heroku post when setting up my project.
+
+From the post:
+
+- [Create React App](https://github.com/facebookincubator/create-react-app)
+  - All the power of a highly-tined Webpack config without the hassle.
+- [Rails in API-only mode](http://edgeguides.rubyonrails.org/api_app.html)
+  - Just the best bits, leaving React to handle the UI.
+- [Active Admin](https://github.com/activeadmin/activeadmin)
+  - An instant CMS backend.
+- Seamless deployment on [Heroku](https://heroku.com/)
+  - Same-origin (so no CORS complications) with build steps to manage both Node and Ruby.
+- Single page app support with [React Router](https://github.com/ReactTraining/react-router)
+  - So you can have lightning fast rendering on the front end.
