@@ -29,40 +29,68 @@ a Kanye West-centric full-stack clone of Genius.com -- community sourced music l
 
 ## Frontend
 
-React.js
-Hooks API
-React Router
-Redux.js
-Create React App redux template
-Bing News Search API
+### React.js
+
+### React Hooks API
+
+### React Router
+
+### Redux.js
+
+### Create React App redux template
+
+### Bing News Search API
 
 ## Backend
 
-Rails 6
-PostgreSQL
-Polymorphic associations
-Counter Cache
-BCrypt gem
-Seed Generation
+### Rails 6
+
+### PostgreSQL
+
+### Polymorphic associations
+
+### Counter Cache
+
+### BCrypt gem
+
+### Seed Generation
 
 ## Assets
 
-SASS
-Fonts
-SVGs
-images hosted on AWS S3
+### SASS
+
+### Fonts
+
+### SVGs
+
+### images hosted on AWS S3
 
 ## Deployment
 
-Heroku local for dev enironment
-proxy unknown API requests to backend
-Heroku production deployment
+### Heroku local for dev enironment
+
+### proxy unknown API requests to backend
+
+### Heroku production deployment
+
+- uptime-robot
 
 ## Code Style
 
-Prettier
-ESLint
-pre-commit
+### Prettier
+
+### ESLint
+
+### pre-commit
+
+# Thoughts on Application Structure and Webpack
+
+the file structure of this project changed multiple times over the course of development.
+
+- manual Webpack structure
+- Rails Webpacker
+- 2 repositories: CreateReactApp frontend, Rails 6 API backend
+- Create React App (current)
 
 # Future Development
 
