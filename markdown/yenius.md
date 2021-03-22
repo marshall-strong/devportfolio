@@ -3,15 +3,7 @@
 [Live Site](https://yenius.herokuapp.com/)
 [GitHub](https://github.com/marshall-strong/yenius)
 
-# Resume
-
-MarshallStrong_Resume_EV
-
-[Google Doc (view only)](https://docs.google.com/document/d/15mYWzq1N8ZvuMThOZ33WoHDQUaQ6BQwibttQ9LzNlDQ/edit?usp=sharing)
-
-[Download as PDF](https://docs.google.com/document/d/15mYWzq1N8ZvuMThOZ33WoHDQUaQ6BQwibttQ9LzNlDQ/export?format=pdf)
-
-[View as PDF in browser ](https://drive.google.com/file/d/1OhmDMX02cyVx8ph7CV4-rnyVGrw1Y8dk/view)
+# Resume Project Info
 
 ## Keywords
 
@@ -40,8 +32,6 @@ a Kanye West-centric full-stack clone of Genius.com -- community sourced music l
 
 - Single Page App supports a fast frontend by loading resources at launch and by only transmitting JSON data
 - Create React App’s Redux+JS template abstracts away Webpack configuration, uses Redux Toolkit and React-Redux to reduce both boilerplate code and developer headaches
-
-# Technologies Used
 
 # Backend
 
