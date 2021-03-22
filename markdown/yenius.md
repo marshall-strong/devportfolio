@@ -262,13 +262,61 @@ Use the Rails secret key base as the environmental variable RAILS_MASTER_KEY
 
 # Code Style
 
-## Prettier
+## Configure Prettier, ESLint, pre-commit git hooks
 
-## ESLint
+https://prettier.io/docs/en/install.html
 
-## pre-commit
+### Install Prettier dev dependency:
 
-# Thoughts on Application Structure and Webpack
+`npm install --save-dev --save-exact prettier`
+
+### Create Prettier config file:
+
+`echo {}> .prettierrc.json`
+
+### Create `.prettierignore` file from `.gitignore`:
+
+`cp .gitignore .prettierignore`
+
+### Format all files with Prettier:
+
+`npx prettier --write .`
+
+### Install ESLint:
+
+`npm install eslint --save-dev`
+
+### Configure ESLint:
+
+`npx eslint --init`
+
+### Install eslint-config-prettier:
+
+`npm install eslint-config-prettier --save-dev`
+
+https://pre-commit.com/
+
+### Create pre-commit config file:
+
+```yaml
+  repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+    - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v2.2.1"
+    hooks:
+      - id: prettier
+
+```
+
+- Install pre-commit git hook: `pre-commit install`
+
+# Design Decisions
 
 the file structure of this project changed multiple times over the course of development.
 
