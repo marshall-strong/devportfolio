@@ -1,44 +1,3 @@
-# Configure Prettier, ESLint, pre-commit git hooks
-
-https://prettier.io/docs/en/install.html
-
-- Install Prettier dev dependency:
-  `npm install --save-dev --save-exact prettier`
-- Create Prettier config file:
-  `echo {}> .prettierrc.json`
-- Create .prettierignore file from .gitignore:
-  `cp .gitignore .prettierignore`
-- Format all files with Prettier:
-  `npx prettier --write .`
-- Install ESLint:
-  `npm install eslint --save-dev`
-- Configure ESLint:
-  `npx eslint --init`
-- Install eslint-config-prettier:
-  `npm install eslint-config-prettier --save-dev`
-
-https://pre-commit.com/
-
-- Create `.pre-commit-config.yaml`:
-  ```yaml
-     # https://pre-commit.com
-     # pre-commit is a framework for managing multi-language pre-commit hooks
-     # run `pre-commit install` to install pre-commit as a git hook.
-     repos:
-       - repo: https://github.com/pre-commit/pre-commit-hooks
-       rev: v3.4.0
-       hooks:
-         - id: trailing-whitespace
-         - id: end-of-file-fixer
-         - id: check-yaml
-         - id: check-added-large-files
-       - repo: https://github.com/pre-commit/mirrors-prettier
-       rev: "v2.2.1" # Use the sha / tag you want to point at
-       hooks:
-         - id: prettier
-  ```
-- Install pre-commit git hook: `pre-commit install`
-
 # Dev Portfolio
 
 🚀 **[Dev Portfolio V2 has arrived. Meet Devfolio, a modern portfolio + blog template built with GatsbyJS and TailwindCSS](https://github.com/RyanFitzgerald/devfolio)** 🚀
@@ -288,8 +247,6 @@ The Skills section is simply an unordered list that spits out a "Skill Cloud" wi
 ```
 
 ### Contact Section
-
-[Formspree](https://webdesign.tutsplus.com/tutorials/quick-tip-add-a-formspree-form-to-your-static-sites--cms-23870)
 
 Since the page is static, I opted to use the awesome Formspree to allow for a contact form without the need for anything else. To use it, you must have the page hosted on a server (loading a basic HTML page won't work) where a referrer header is generated. Also, simply add the email to the action. An example is as follows:
 
