@@ -5,6 +5,14 @@
 
 # Resume
 
+MarshallStrong_Resume_EV
+
+[Google Doc (view only)](https://docs.google.com/document/d/15mYWzq1N8ZvuMThOZ33WoHDQUaQ6BQwibttQ9LzNlDQ/edit?usp=sharing)
+
+[Download as PDF](https://docs.google.com/document/d/15mYWzq1N8ZvuMThOZ33WoHDQUaQ6BQwibttQ9LzNlDQ/export?format=pdf)
+
+[View as PDF in browser ](https://docs.google.com/viewer?url=https://docs.google.com/document/d/15mYWzq1N8ZvuMThOZ33WoHDQUaQ6BQwibttQ9LzNlDQ/export?format=pdf)
+
 ## Keywords
 
 Ruby on Rails 6, PostgreSQL, JavaScript, React.js, Redux.js, SCSS, AWS, Heroku
@@ -28,6 +36,11 @@ a Kanye West-centric full-stack clone of Genius.com -- community sourced music l
 - Leveraged Rails polymorphic associations to avoid schema changes when adding new types of metadata
 - Ensured secure user authentication by using the BCrypt gem to salt, hash, and retrieve passwords
 
+## Other Bullets
+
+- Single Page App supports a fast frontend by loading resources at launch and by only transmitting JSON data
+- Create React App’s Redux+JS template abstracts away Webpack configuration, uses Redux Toolkit and React-Redux to reduce both boilerplate code and developer headaches
+
 # Technologies Used
 
 # Backend
@@ -46,13 +59,23 @@ We are essentially using rails as an API only (I didn't create the app in API on
 
 ## Polymorphic associations
 
+_Rails polymorphic associations prevent the need for schema changes when adding new types of metadata_
+
+_Leveraged Rails polymorphic associations to avoid schema changes when adding new types of metadata_
+
 ## Counter Cache
 
 ## BCrypt gem
 
+_BCrypt gem salts, hashes, and retrieves passwords, maintaining secure authentication from front to back_
+
+_Ensured secure user authentication by using the BCrypt gem to salt, hash, and retrieve passwords_
+
 ## Seed Generation
 
 # Frontend
+
+_Single Page App supports a fast frontend by loading resources at launch and by only transmitting JSON data_
 
 The frontend is a React/Redux app, located in the `client/` direcory. It was created using [cra-template-redux](https://github.com/reduxjs/cra-template-redux), the official Redux+JS template for [Create React App](https://github.com/facebook/create-react-app).
 
@@ -62,13 +85,27 @@ The frontend is a React/Redux app, located in the `client/` direcory. It was cre
 
 ## React Router
 
+Single Page App supports a fast frontend by loading resources at launch and by only transmitting JSON data
+
 ## Redux.js
+
+_Redux store maintains a single source of truth on the frontend, allowing easy access to complex metadata_
+
+_Managed complex metadata by using Redux to create a normalized state with a single source of truth_
 
 ## Create React App redux template
 
 _Because life is too short to configure Webpack manually_
 
+- Create React App’s Redux+JS template
+- abstracts away Webpack configuration
+- uses Redux Toolkit and React-Redux to reduce boilerplate code
+
 ## Bing News Search API
+
+_Bing News Search API retrieves the latest tabloid gossip on Kanye West’s impending divorce_
+
+_Retrieved the latest tabloid gossip on Kanye West’s impending divorce with the Bing News Search API_
 
 # Assets
 
