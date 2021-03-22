@@ -25,3 +25,12 @@ a RESTful project management application -- created for remote collaboration, by
 - Included an auto-suggest feature for users to quickly find team members and assign tasks
 - Created user interface with CRUD operations for tasks, tags, and comments
 - Collaborated with remote team members using Git version control during the COVID-19 quarantine
+
+## Other Bullets
+
+Used Git version control to collaborate with remote team members during the COVID-19 pandemic
+
+Developed during the COVID-19 pandemic by remote team members using Git version control
+
+- Developed in collaboration with remote team members during the COVID-19 quarantine and pandemic
+- Used git and feature branching to contribute to a group repository on GitHub

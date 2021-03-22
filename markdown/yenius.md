@@ -11,7 +11,7 @@ MarshallStrong_Resume_EV
 
 [Download as PDF](https://docs.google.com/document/d/15mYWzq1N8ZvuMThOZ33WoHDQUaQ6BQwibttQ9LzNlDQ/export?format=pdf)
 
-[View as PDF in browser ](https://docs.google.com/viewer?url=https://docs.google.com/document/d/15mYWzq1N8ZvuMThOZ33WoHDQUaQ6BQwibttQ9LzNlDQ/export?format=pdf)
+[View as PDF in browser ](https://drive.google.com/file/d/1OhmDMX02cyVx8ph7CV4-rnyVGrw1Y8dk/view)
 
 ## Keywords
 
