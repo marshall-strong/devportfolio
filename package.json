@@ -1,5 +1,5 @@
 {
-  "name": "devportfolio-template",
+  "name": "devportfolio",
   "version": "1.2.2",
   "description": "",
   "main": "js/scripts.js",
@@ -26,9 +26,9 @@
     "gulp-babel": "^8.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "gulp-wait": "0.0.2",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "sass": "^1.32.8"
   }
 }
